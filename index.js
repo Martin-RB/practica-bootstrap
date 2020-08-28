@@ -4,9 +4,14 @@ var done_undone = $("#done_undone");
 var add_btn = $("#add_btn");
 var todos = [];
 var todoDisplayed = -1;
+var added_alert = $("#added_alert");
+var toast_body = $(".toast-body");
+var number = $("#number");
 
 addTodo = (todoText) => {
     todos.push({id: todos.length, text: todoText, isDone: false});
+    toast_body.html("TODO Added");
+    added_alert.toast("show");
     todoDisplayed = -1;
     refreshTodoList();
     refreshTodoForm();
@@ -17,10 +22,14 @@ refreshTodoList = () => {
     todos.forEach(el => {
         todolist.append(`<a data-id="${el.id}" class="dropdown-item ${(el.isDone? "bg-success": "")}" href="#">${el.text}</a>`);
     });
+    
+    number.html(todos.filter(e => !e.isDone).length);
 }
 
 setDone = (id, isDone) => {
     todos[id].isDone = isDone;
+    toast_body.html("TODO Changed");
+    added_alert.toast("show");
     todoDisplayed = -1;
     refreshTodoList();
     refreshTodoForm();
@@ -57,4 +66,6 @@ todolist.on("click", ".dropdown-item", (el) => {
     refreshTodoForm();
 });
 
+add_btn.tooltip();
+added_alert.toast({delay: 2000});
 refreshTodoForm();

@@ -9,36 +9,69 @@
 </head>
 <body>
 
+    <!-- 1: Container -->
     <div class="container">
-        <h1>TODO list</h1>
+        
+        <!-- 2: Jumbotron -->
+        <div class="jumbotron">
+            <h1 class="display-4">TODO list</h1>
+            <p class="lead">This is a todo list for the web class</p>
+            
+        </div>
     
+        <!-- 3: Row -->
         <div class="row">
+            <!-- 4: Col -->
             <div class="col col-sm-2">
+                <!-- 5: Dropdown -->
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        TODOS
+                        <!-- 12: Badge -->
+                        TODOS <span class="badge badge-secondary" id="number"></span>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="todolist">
                     </div>
                 </div>
             </div>
             <div class="col col-sm-6">
+                <!-- 6: Input group -->
                 <div class="input-group mb-3">
+                    <!-- 7: Prepend -->
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1">Title</span>
                     </div>
                     <input type="text" id="todo" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                    <!-- 8: Button -->
                     <button type="button" id="done_undone" class="btn btn-primary">Mark as done</button>
                     <div>
-                        <button type="button" id="add_btn" class="btn btn-primary">Add</button>
+                        <!-- 9: tooltip -->
+                        <button type="button" id="add_btn" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Make sure is a cool name">Add</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- 10: Toast -->
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" id="added_alert">
+        <div class="toast-header">
+            <!-- 11: Spinning grow -->
+            <div class="spinner-grow text-success" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <strong class="mr-auto">TODO manager</strong>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            TODO ADDED
+        </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script src="index.js"></script>
 </body>
 </html>
